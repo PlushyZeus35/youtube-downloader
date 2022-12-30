@@ -5,7 +5,7 @@ var router = express.Router();
 
 /* GET Index page. */
 router.get('/', async (req, res) => {
-    res.render('index')
+    res.render('index', {error: []})
 });
 
 router.get('/download', async (req, res) => {

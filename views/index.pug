@@ -22,9 +22,9 @@ html(lang="en")
                             img(src="./static/img/github.png", alt="Github Logo" width="40" height="40")
         .mainDiv.d-flex.justify-content-center.align-items-center
             form(action="./download" method="GET") 
-                .container.d-flex.justify-content-center.align-items-center
+                #inputDiv.container
                     .form-floating.me-3
-                        input#floatingInput.form-control(type='text' name='url' placeholder='name@example.com')
+                        input#floatingInput.form-control(type='text' name='url')
                         label(for='floatingInput') Url Youtube
                     button.btn.btn-primary.btn-lg(type="submit") Descargar
         .mainDiv
