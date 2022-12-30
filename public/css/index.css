@@ -1,8 +1,29 @@
+body{
+	width: 100vw;
+	overflow: hidden;
+}
+
 .mainDiv{
 	background-color: #e8e8e8;
 	min-height: 50vh;
 }
 
 .form-floating{
-	width: 400px;
+	width: 100%;
+	margin: 0 0 10px 0;
+}
+
+#inputDiv{
+	display: flex;
+	flex-direction: column;
+}
+
+@media (min-width: 768px) { 
+	.form-floating{
+		width: 70vw;
+	}
+
+	#inputDiv{
+		flex-direction: row;
+	}
 }
