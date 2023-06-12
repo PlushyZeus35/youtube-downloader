@@ -15,6 +15,7 @@ router.get('/download', async (req, res) => {
         let videoId = videoUrl.split('=')[1].split('&')[0];
         let videoTitle = await ytdl.getInfo(videoId);
         videoTitle = videoTitle.videoDetails.title + '.mp3';
+        videoTitle = videoTitle.replace(/[^\w.,\s]/g, '');
         var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'}); 
         res.header("Content-Disposition", 'attachment;\  filename="' + videoTitle+"\"");
         var stream = videoReadableStream.pipe(res);
