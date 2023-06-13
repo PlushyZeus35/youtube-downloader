@@ -20,22 +20,20 @@ html(lang="en")
                     li.nav-item
                         a.nav-link.active(href='https://github.com/PlushyZeus35/youtube-downloader' aria-current='page')
                             img(src="./static/img/github.png", alt="Github Logo" width="40" height="40")
-        .mainDiv.d-flex.justify-content-center.align-items-center
-            form(action="./download" method="GET") 
-                #inputDiv.container
-                    .form-floating.me-3
-                        input#floatingInput.form-control(type='text' name='url')
-                        label(for='floatingInput') Url Youtube
-                    button.btn.btn-primary.btn-lg(type="submit") Descargar
-        .mainDiv
-    .toast-container.position-fixed.bottom-0.end-0.p-3
-        .toast.bg-danger(id="liveToast" role='alert' aria-live='assertive' aria-atomic='true')
-            .toast-header
-                svg.bi.bi-bug-fill.me-2(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
-                    path(d='M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A4.985 4.985 0 0 0 3 6h10a4.985 4.985 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A4.978 4.978 0 0 0 8 1a4.979 4.979 0 0 0-2.731.811l-.29-.956z')
-                    path(d='M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5H13zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975z')
-                strong.me-auto#toast-title Bootstrap
-                small#toast-timer
-                button.btn-close(type='button' data-bs-dismiss='toast' aria-label='Close')
-            #liveToastText.toast-body
+        .mainDiv.d-flex.justify-content-center.pt-5
+            .mainCard.pt-5
+                form(action="/download" method="GET") 
+                    #inputDiv.container
+                        input.input.me-3(type='text' name='text' placeholder='Introduce la url de youtube')
+                        button.btn.btn-primary.btn-lg(type="submit") Descargar
+        .toast-container.position-fixed.bottom-0.end-0.p-3
+            .toast.bg-danger(id="liveToast" role='alert' aria-live='assertive' aria-atomic='true')
+                .toast-header
+                    svg.bi.bi-bug-fill.me-2(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+                        path(d='M4.978.855a.5.5 0 1 0-.956.29l.41 1.352A4.985 4.985 0 0 0 3 6h10a4.985 4.985 0 0 0-1.432-3.503l.41-1.352a.5.5 0 1 0-.956-.29l-.291.956A4.978 4.978 0 0 0 8 1a4.979 4.979 0 0 0-2.731.811l-.29-.956z')
+                        path(d='M13 6v1H8.5v8.975A5 5 0 0 0 13 11h.5a.5.5 0 0 1 .5.5v.5a.5.5 0 1 0 1 0v-.5a1.5 1.5 0 0 0-1.5-1.5H13V9h1.5a.5.5 0 0 0 0-1H13V7h.5A1.5 1.5 0 0 0 15 5.5V5a.5.5 0 0 0-1 0v.5a.5.5 0 0 1-.5.5H13zm-5.5 9.975V7H3V6h-.5a.5.5 0 0 1-.5-.5V5a.5.5 0 0 0-1 0v.5A1.5 1.5 0 0 0 2.5 7H3v1H1.5a.5.5 0 0 0 0 1H3v1h-.5A1.5 1.5 0 0 0 1 11.5v.5a.5.5 0 1 0 1 0v-.5a.5.5 0 0 1 .5-.5H3a5 5 0 0 0 4.5 4.975z')
+                    strong.me-auto#toast-title Bootstrap
+                    small#toast-timer
+                    button.btn-close(type='button' data-bs-dismiss='toast' aria-label='Close')
+                #liveToastText.toast-body
     script(src='/static/js/index.js')
