@@ -24,7 +24,7 @@ html(lang="en")
             .mainCard.pt-5
                 form(action="/download" method="GET") 
                     #inputDiv.container
-                        input.input.me-3(type='text' name='text' placeholder='Introduce la url de youtube')
+                        input.input.me-3(type='text' name='url' placeholder='Introduce la url de youtube')
                         button.btn.btn-primary.btn-lg(type="submit") Descargar
         .toast-container.position-fixed.bottom-0.end-0.p-3
             .toast.bg-danger(id="liveToast" role='alert' aria-live='assertive' aria-atomic='true')
