@@ -1,6 +1,8 @@
 var express = require('express');
 const fs = require('fs');
 const ytdl = require('ytdl-core');
+const readline = require('readline');
+const ffmpeg = require('fluent-ffmpeg');
 var router = express.Router();
 
 /* GET Index page. */
@@ -9,23 +11,22 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/download', async (req, res) => {
-    var videoUrl = req.query.url; 
+    var videoUrl = req.query.url;
     try{
-        const videoInfo = await ytdl.getBasicInfo(videoUrl);
-        let videoId = videoUrl.split('=')[1].split('&')[0];
-        let videoTitle = await ytdl.getInfo(videoId);
-        videoTitle = videoTitle.videoDetails.title + '.mp3';
-        videoTitle = videoTitle.replace(/[^\w.,\s]/g, '');
-        var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'}); 
-        res.header("Content-Disposition", 'attachment;\  filename="' + videoTitle+"\"");
-        var stream = videoReadableStream.pipe(res);
+        const info = await ytdl.getInfo(videoUrl);
+        const title = info.videoDetails.title;
+        const stream = ytdl(videoUrl, { quality: 'highestaudio' });
+        
+        res.setHeader('Content-Disposition', 'attachment; filename="'+title+'.mp3"');
+        res.setHeader('Content-Type', 'audio/mpeg');
+
+        stream.pipe(res);
     }catch(error){
+        console.log(error);
         res.render('index', {error: [error.toString()]})
     }
     
     
 })
-
-
 
 module.exports = router;
