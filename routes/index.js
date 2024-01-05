@@ -1,8 +1,5 @@
 var express = require('express');
-const fs = require('fs');
 const ytdl = require('ytdl-core');
-const readline = require('readline');
-const ffmpeg = require('fluent-ffmpeg');
 var router = express.Router();
 
 /* GET Index page. */
